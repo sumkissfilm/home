@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ===== PAGE TITLE & FAVICON ===== -->
+    <title>Summer Kisses | 影像製作</title>
+    <link rel="icon" href="images/favicon/SumKiss.png" type="image/png">
+    
+    <!-- ===== SEO META TAGS ===== -->
+    <meta name="description" content="Summer Kisses 一間專注於製作愛情故事的影像工作室，紀錄的不僅僅是你們，是情感，也是時間。">
+    <meta name="keywords" content="預告影片, 婚禮預告, 婚禮影片, 情侶寫真, 愛情故事, 個人寫真, 求婚紀錄, Summer Kisses">
+    <meta name="author" content="Summer Kisses">
+    
+    <!-- ===== EXTERNAL STYLESHEETS ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+    
+    <!-- ===== LOCAL STYLESHEETS ===== -->
+    <!-- 主要樣式檔案 - 包含全域樣式、各區塊樣式、響應式設計 -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 頁首導航樣式檔案 - 包含 header、導航列、漢堡選單、選單動畫、社群圖示 -->
+    <link rel="stylesheet" href="css/header-navigation.css">
+    <!-- Footer 樣式檔案 - 包含頁尾樣式、響應式設計、無障礙功能 -->
+    <link rel="stylesheet" href="css/footer.css">
+    <!-- YouTube 主題樣式檔案 - 包含 YouTube 嵌入影片樣式 -->
+    <!-- 注意：此檔案目前不存在，YouTube 樣式已整合到 style.css 中 -->
+    
+    <!-- ===== LOADING ANIMATION STYLES ===== -->
+    <!-- 載入動畫樣式 - 內嵌在 HTML 中，包含載入畫面、進度條、淡出動畫 -->
+    <style>
+        /* Loading Animation Container */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1.2s ease-out;
+        }
+
+        /* Prevent Scrolling During Loading */
+        body.loading {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Loading Logo */
+        .loader-logo {
+            width: 300px;
+            margin-bottom: 30px;
+        }
+
+        /* Loading Container */
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Loading Progress Bar */
+        .loading-bar {
+            width: 200px;
+            height: 3px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loading-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 30%;
+            background: #f7bc51;
+            animation: loading 1.5s ease-in-out infinite;
+            border-radius: 3px;
+        }
+
+        /* Loading Percentage Text */
+        .loading-percentage {
+            font-size: 14px;
+            color: #f7bc51;
+            text-align: center;
+        }
+
+        /* Loading Animation Keyframes */
+        @keyframes loading {
+            0% {
+                left: -30%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Fade Out Animation */
+        .loader-wrapper.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Responsive Loading Logo */
+        .loader-wrapper .loader-logo {
+            max-width: 100%;
+            height: auto;
+            width: 300px;
+        }
+
+        /* Responsive Design for Loading */
+        @media screen and (max-width: 1200px) {
+            .loader-wrapper .loader-logo {
+                width: 300px;
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .loader-wrapper .loader-logo {
+                width: 300px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .loader-wrapper .loader-logo {
+                width: 300px;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .loader-wrapper .loader-logo {
+                width: 250px;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .loader-wrapper .loader-logo {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===== LOADING ANIMATION ===== -->
+    <!-- 載入動畫區塊 - 由內嵌 JavaScript 控制載入進度和淡出效果 -->
+    <div class="loader-wrapper">
+        <img src="images/header/summerkiss-logo.png" alt="Summer Kisses Film" class="loader-logo">
+        <div class="loading-container">
+            <div class="loading-bar"></div>
+            <div class="loading-percentage">0%</div>
+        </div>
+    </div>
+
+    <!-- ===== HEADER & NAVIGATION ===== -->
+    <!--
+        Header 導覽列區塊
+        - 樣式主要由 css/header-navigation.css 控制
+        - 滾動超過 hero 區塊時，header 會自動加上 .scrolled 類別，顯示白色背景
+        - 相關 JS 控制於 js/scroll.js（負責滾動監聽與 class 切換）
+        - Bootstrap 負責響應式選單展開收合
+    -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <!-- Brand Logo -->
+                <a class="navbar-brand" href="https://sumkissfilm.github.io/homepage/">
+                    <img src="images/header/summerkiss-logo.png" alt="Summer Kisses Logo">
+                </a>
+                
+                <!-- Mobile Menu Toggle Button -->
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <!-- 關閉按鈕 -->
+                    <!--<button class="menu-close-btn" type="button" aria-label="關閉選單">
+                        <span class="close-icon">×</span>
+                    </button>-->
+                    
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://sumkissfilm.github.io/aboutus/" style="white-space: nowrap;">關於我們</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://sumkissfilm.github.io/price/" style="white-space: nowrap;">愛情故事</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Prewedding.html" style="white-space: nowrap;">價格方案</a>
+                        </li>
+                        <!-- Hidden Menu Item
+                        <li class="nav-item">
+                            <a class="nav-link" href="Customer.html" style="white-space: nowrap;">顧客回顧</a>
+                        </li>
+                        -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="Column.html" style="white-space: nowrap;">常見Q&A</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Social Media Icons -->
+                    <!-- 社群媒體圖示區塊 - 使用 header-navigation.css 樣式 -->
+                    <div class="social-icons">
+                        <a href="http://www.youtube.com/@sumkiss" target="_blank" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 20px; height: 20px; color: #000; text-decoration: none; background: rgba(247, 188, 81, 0.1); border-radius: 50%; transition: color 0.3s ease;">
+                            <i class="fab fa-youtube" style="display: inline-block !important; font-style: normal !important; font-family: 'Font Awesome 6 Brands' !important; font-weight: 400 !important; line-height: 1 !important; font-size: 1.25rem !important;"></i>
+                        </a>
+                        <a href="https://www.instagram.com/sumkiss.film/" target="_blank" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 20px; height: 20px; color: #000; text-decoration: none; background: rgba(247, 188, 81, 0.1); border-radius: 50%; transition: color 0.3s ease;">
+                            <i class="fab fa-instagram" style="display: inline-block !important; font-style: normal !important; font-family: 'Font Awesome 6 Brands' !important; font-weight: 400 !important; line-height: 1 !important; font-size: 1.25rem !important;"></i>
+                        </a>
+                        <a href="https://sumkissfilm.github.io/homepage/" aria-label="Home" style="display: flex; align-items: center; justify-content: center; width: 20px; height: 20px; color: #000; text-decoration: none; background: rgba(247, 188, 81, 0.1); border-radius: 50%; transition: color 0.3s ease;">
+                            <i class="fas fa-home" style="display: inline-block !important; font-style: normal !important; font-family: 'Font Awesome 6 Free' !important; font-weight: 900 !important; line-height: 1 !important; font-size: 1.25rem !important;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <!-- Hero Section -->
+        <!-- 主要橫幅區塊 - 使用 style.css 中的 .hero 樣式 -->
+        <!-- 由 scroll.js 監控滾動位置，控制頁首背景色變化 -->
+        <section class="hero">
+            <div class="hero-content">  
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <!-- 關於我們區塊 - 使用 style.css 中的 .body001 和 .text-content 樣式 -->
+        <section class="body001">
+            <div class="text-content">
+                <img src="images/header/header/Summer Kisses LOGO.png" alt="Summer Kisses Logo">
+                <p>在盛夏的艷陽裡，我們的情感始終炙熱。</p>
+                <a href="https://sumkissfilm.github.io/aboutus/" class="text-button">ABOUT US...</a>
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <!-- 圖片展示區塊 - 使用 style.css 中的 .body002 和 .image-container 樣式 -->
+        <section class="body002">
+            <div class="image-container">
+                <div class="image-left">
+                    <img src="images/body002/JU_06478.jpg" alt="愛情故事攝影作品">
+                </div>
+                <div class="image-right">
+                    <img src="images/body002/JU_06471.jpg" alt="婚禮紀實攝影作品">
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Portfolio Section -->
+        <!-- 影片作品集區塊 - 使用 style.css 中的 .body004 和 .image-grid 樣式 -->
+        <!-- 使用 youtube-theme.css 優化 YouTube 嵌入影片顯示 -->
+        <section class="body004">
+            <div class="section-title">
+                <!-- Hidden Title
+                <h2>作品</h2>
+                -->
+                <!-- Hidden Japanese Text
+                <p>『カメラの存在を忘れた瞬間に、物語が始まる。』</p>
+                -->
+                <p>『當你忘了攝影機，故事便開始了。』</p>
+            </div>
+            
+            <!-- Video Grid -->
+            <div class="image-grid">
+                <!-- Main Video -->
+                <div class="image-item">
+                    <iframe width="100%" height="680" 
+                            src="https://www.youtube.com/embed/Yd-l0udh-0M?si=NRIXBeCpq1S7yFj7" 
+                            title="Summer Kisses 愛情故事作品" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <!-- Middle Videos Container -->
+                <div class="middle-images">
+                    <!-- Left Video -->
+                    <div class="image-item half-width">
+                        <iframe width="100%" height="345" 
+                                src="https://www.youtube.com/embed/b8WcgMShfuQ?si=WJF1roUfYAiWpEFn" 
+                                title="Summer Kisses 作品展示" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <!-- Right Video -->
+                    <div class="image-item half-width">
+                        <iframe width="100%" height="345" 
+                                src="https://www.youtube.com/embed/dC6yphLwpsw?si=LU3siONmHNbLlqKO" 
+                                title="Summer Kisses 婚禮紀實" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                
+                <!-- Bottom Video -->
+                <div class="image-item">
+                    <iframe width="100%" height="680" 
+                            src="https://www.youtube.com/embed/OhZPwT9G6QQ?si=kZWLp8C9Wa0O9oxV" 
+                            title="Summer Kisses 完整作品集" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            
+            <!-- Contact Button -->
+            <div class="contact-section" style="display: flex; justify-content: center; align-items: center; margin: 4rem 0 1rem 0;">
+                <a href="https://www.instagram.com/sumkiss.film/" class="text-button" target="_blank">預約諮詢</a>
+            </div>
+        </section>
+
+        <!-- Hidden Section - Body003 -->
+        <!-- 隱藏的愛情故事區塊 - 使用 style.css 中的 .body003 樣式 -->
+        <!-- 目前被註解掉，包含愛情故事和登記紀實內容 -->
+        <!--
+        <section class="body003">
+            <div class="row-title">
+                <h2>愛情故事｜登記紀實</h2>
+            </div>
+            <div class="row-content">
+                <div class="image-column">
+                    <div class="image-wrapper">
+                        <img src="images/body003/JU_00328.jpg" alt="愛情故事照片">
+                    </div>
+                </div>
+                <div class="text-column">
+                    <h3>愛情故事｜專屬於你們的愛情故事</h3>
+                    <p>每對新人的愛情故事都是獨一無二的，我們致力於捕捉那些最真實、最動人的瞬間。從你們相識的那一刻，到決定共度餘生的承諾，我們用鏡頭記錄下每一個珍貴的時刻。</p>
+                    <div class="button-group">
+                        <a href="https://www.instagram.com/sumkiss.film/" class="text-button">我們的作品</a>
+                        <a href="https://sumkissfilm.github.io/price/" class="text-button">查看定價</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row-content">
+                <div class="image-column">
+                    <div class="image-wrapper">
+                        <img src="images/body003/Ju241225_037.jpg" alt="登記紀實照片">
+                    </div>
+                </div>
+                <div class="text-column">
+                    <h3>登記紀實｜記錄妳與你人生中最重要的一天</h3>
+                    <p>在喧囂世界的一隅，走進戶政事務所的那一刻，你們不只是簽下一紙文件，而是靜靜地，為彼此許下一個無聲卻堅定的承諾。</p>
+                    <p>牽手的瞬間、蓋章時小小的顫動、彼此偷偷藏不住的笑意。</p>
+                    <div class="button-group">
+                        <a href="https://www.instagram.com/sumkiss.film/" class="text-button">我們的作品</a>
+                        <a href="https://sumkissfilm.github.io/price/" class="text-button">查看定價</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        -->
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <!-- 頁尾區塊 - 使用 css/footer.css 中的 footer 相關樣式 -->
+    <footer>
+        <div class="footer-content">
+            <!-- Contact Information -->
+            <div class="footer-section">
+                <p>Instagram：<a href="https://www.instagram.com/sumkiss.film/">sumkiss.film</a></p>
+                <p>商業合作：<a href="mailto:sumkiss.film@gmail.com">sumkiss.film@gmail.com</a></p>
+                <p><a href="https://sumkissfilm.github.io/homepage/">首頁</a></p>
+            </div>
+            
+            <!-- Social Media Links -->
+            <div class="footer-section">
+                <p>追蹤我們</p>
+                <div class="social-links">
+                    <a href="https://www.youtube.com/@sumkiss" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sumkiss.film/" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/sumkiss.film" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2024 Summer Kisses 影像工作室 版權所有｜網頁設計 by Gary Chan｜技術支持 by Jinhe Chen</p>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    
+    <!-- External Scripts -->
+    <!-- Bootstrap JavaScript - 提供導航列響應式功能 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Instagram Embed Script - 用於 Instagram 內容嵌入 -->
+    <script async src="//www.instagram.com/embed.js"></script>
+    
+    <!-- Local Scripts -->
+    <!-- 主要 JavaScript 檔案 - 包含導航選單、滾動效果、互動功能 -->
+    <script src="js/main.js"></script>
+    <!-- 滾動效果 JavaScript 檔案 - 專門處理頁首滾動背景色變化 -->
+    <script src="js/scroll.js"></script>
+    <!-- Footer JavaScript 檔案 - 包含頁尾互動功能、動畫效果、無障礙功能 -->
+    <script src="js/footer.js"></script>
+    
+    <!-- Loading Animation Script -->
+    <!-- 載入動畫 JavaScript - 內嵌在 HTML 中，控制載入進度和淡出效果 -->
+    <script>
+        // Loading Animation Handler
+        window.addEventListener('load', function() {
+            const loader = document.querySelector('.loader-wrapper');
+            const percentage = document.querySelector('.loading-percentage');
+            let progress = 0;
+            
+            // Add loading class to body to prevent scrolling
+            document.body.classList.add('loading');
+            
+            // Simulate loading progress
+            const interval = setInterval(() => {
+                progress += 1;
+                percentage.textContent = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loader.classList.add('fade-out');
+                        // Remove loading class to restore scrolling
+                        document.body.classList.remove('loading');
+                    }, 200);
+                }
+            }, 20);
+        });
+    </script>
+</body>
+</html>

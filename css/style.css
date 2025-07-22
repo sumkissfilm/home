@@ -1,0 +1,548 @@
+/* ========================================
+   SUMMER KISSES - MAIN STYLESHEET
+   ======================================== */
+
+/* ===== RESET AND BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== FONT DEFINITIONS ===== */
+/* 自訂字體載入 - Juniper and Sage 字體 */
+@font-face {
+    font-family: 'Juniper and Sage';
+    src: url('../fonts/Juniper-and-Sage.woff2') format('woff2'),
+         url('../fonts/Juniper-and-Sage.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ===== GLOBAL FONT SETTINGS ===== */
+/* 全域字體設定 - 使用 Noto Sans TC 作為主要字體 */
+* {
+    font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ===== GENERAL BODY STYLES ===== */
+/* 主要頁面樣式設定 */
+body {
+    font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* ===== HERO SECTION ===== */
+/* 主要橫幅區塊樣式 - 恢復原始背景圖片設計 */
+.hero {
+    position: relative;
+    height: 700px;
+    background-image: url('../images/hero/JU_00281.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+/* ===== ABOUT US SECTION (BODY001) ===== */
+/* 關於我們區塊樣式 - 恢復原始設計 */
+.body001 {
+    height: 456px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.text-content {
+    max-width: 800px;
+    text-align: center;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-content h2 {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: #000;
+    margin: 0;
+}
+
+.text-content p {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #000;
+    margin: 0;
+}
+
+/* 按鈕樣式 - 恢復原始設計 */
+.text-button {
+    display: inline-block;
+    width: 200px;
+    height: 43px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid #000;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+}
+
+.text-button:hover {
+    background-color: #f7bc51;
+    color: #fff;
+    border-color: #f7bc51;
+}
+
+/* ===== IMAGE GALLERY SECTION (BODY002) ===== */
+/* 圖片展示區塊樣式 - 恢復原始設計 */
+.body002 {
+    width: 100%;
+    height: 600px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.image-container {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    height: 100%;
+}
+
+.image-left, .image-right {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.image-left {
+    width: 67.24%;
+}
+
+.image-right {
+    width: 32.76%;
+}
+
+.image-left img, .image-right img {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateY(-50%);
+}
+
+/* ===== VIDEO PORTFOLIO SECTION (BODY004) ===== */
+/* 影片作品集區塊樣式 - 恢復原始設計 */
+.body004 {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 背景裝飾元素 - 恢復原始設計 */
+.body004::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(247, 188, 81, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(247, 188, 81, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(247, 188, 81, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.body004::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(rgba(247, 188, 81, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(247, 188, 81, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 區塊標題樣式 - 恢復原始設計 */
+.body004 .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.body004 .section-title h2 {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.body004 .section-title p {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* 影片網格容器 - 恢復原始設計 */
+.body004 .image-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* 影片項目樣式 - 恢復原始設計 */
+.body004 .image-item {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+.body004 .image-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 影片覆蓋層效果 - 恢復原始設計 */
+.body004 .image-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    border-radius: 12px;
+}
+
+.body004 .image-item:hover .overlay {
+    opacity: 1;
+}
+
+/* 中間影片容器 - 恢復原始設計 */
+.body004 .middle-images {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* 半寬影片項目 - 恢復原始設計 */
+.body004 .image-item.half-width {
+    width: calc(50% - 1rem);
+    position: relative;
+    padding-bottom: 0;
+    overflow: visible;
+}
+
+/* Iframe 樣式 - 恢復原始設計 */
+.body004 .image-item.half-width iframe {
+    width: 100%;
+    height: 345px;
+    border-radius: 12px;
+    position: relative;
+    border: none;
+}
+
+/* YouTube 嵌入影片樣式 - 恢復原始設計 */
+.body004 .image-item iframe {
+    width: 100%;
+    height: 660px;
+    border-radius: 12px;
+    position: relative;
+    border: none;
+}
+
+/* ===== FOOTER SECTION ===== */
+/* 頁尾樣式已移至 css/footer.css 檔案中 */
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* 桌面版樣式 (≥992px) */
+@media (min-width: 992px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.3rem;
+    }
+    
+    .text-content .button-group {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    .text-button {
+        width: 200px;
+        height: 43px;
+        line-height: 40px;
+        font-size: 14px;
+    }
+    
+    .text-button:last-child {
+        margin-left: 1rem;
+    }
+    
+    .body004 .section-title h2 {
+        font-size: 3rem;
+    }
+    
+    .body004 .section-title p {
+        font-size: 1.3rem;
+    }
+    
+    .body004 .image-grid {
+        gap: 3rem;
+    }
+    
+    .body004 .image-item.half-width {
+        width: calc(50% - 1rem);
+    }
+    
+    .body004 .image-item.half-width iframe,
+    .body004 .image-item iframe {
+        border-radius: 15px;
+    }
+    
+    .body004 .middle-images {
+        gap: 3rem;
+    }
+    
+    .body004 .image-item .video-content {
+        padding: 2rem;
+    }
+    
+    .body004 .image-item .video-title {
+        font-size: 1.5rem;
+    }
+    
+
+}
+
+/* 平板版樣式 (≤991px) - 已移至 header-navigation.css */
+
+/* 手機版樣式 (≤768px) */
+@media (max-width: 768px) {
+    /* Hero Section */
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    /* Button Styles */
+    .text-content .button-group {
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-button {
+        width: 120px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    .text-button:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Body004 Section */
+    .body004 .section-title h2 {
+        font-size: 1.6rem;
+    }
+    
+    .body004 .section-title p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .body004 .image-grid {
+        gap: 0.5rem;
+        padding: 0 1rem;
+    }
+    
+    .body004 .image-item.half-width {
+        width: 100%;
+    }
+    
+    .body004 .image-item.half-width iframe,
+    .body004 .image-item iframe {
+        height: 400px;
+    }
+    
+    .body004 .middle-images {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .body004 .image-item .video-content {
+        padding: 1.5rem;
+    }
+    
+    .body004 .image-item .video-title {
+        font-size: 1rem;
+    }
+
+
+}
+
+/* 小手機版樣式 (≤576px) */
+@media (max-width: 576px) {
+    /* Button Styles */
+    .text-content .button-group {
+        gap: 20px;
+    }
+
+    .text-button {
+        width: 120px;
+        height: 35px;
+    }
+
+    /* Body004 Section */
+    .body004 .section-title h2 {
+        font-size: 1.4rem;
+    }
+    
+    .body004 .section-title p {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+    
+    .body004 .image-item iframe {
+        height: 300px;
+    }
+    
+    .body004 .image-item.half-width iframe {
+        height: 180px;
+    }
+
+
+}
+
+/* 超小螢幕樣式 (≤400px) */
+@media screen and (max-width: 400px) {
+    .body001 .text-content img {
+        width: 200px;
+    }
+    
+    .body004 .image-item.half-width iframe,
+    .body004 .image-item iframe {
+        height: 250px;
+    }
+}
+
+/* ===== LOGO RESPONSIVE ADJUSTMENTS ===== */
+/* 關於我們區塊 Logo 響應式調整 */
+.body001 .text-content img {
+    max-width: 100%;
+    height: auto;
+    width: 362px;
+}
+
+/* 大螢幕 Logo 調整 */
+@media screen and (max-width: 1200px) {
+    .body001 .text-content img {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .body001 .text-content img {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .body001 .text-content img {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .body001 .text-content img {
+        width: 250px;
+    }
+}
+
+/* 手機版品牌標誌調整 - 已移至 header-navigation.css */
+
+/* ===== SECTION TITLE RESPONSIVE ADJUSTMENTS ===== */
+/* 影片作品集標題響應式調整 */
+@media (max-width: 2560px) {
+    .body004 .section-title h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 1920px) {
+    .body004 .section-title h2 {
+        font-size: 1.8rem;
+    }
+}
+
